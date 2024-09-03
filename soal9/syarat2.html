@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Opsi Jawaban & Poin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        input[type="number"], input[type="text"] {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            width: calc(20% - 12px);
+            box-sizing: border-box;
+        }
+        input[type="number"] {
+            margin: right 10px;
+        }
+        .add-option {
+            color: blue;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="optionsForm">
+        <label>Opsi Jawaban & Poin<span style="color: red;">*</span></label>
+        <div id="optionContainer">
+            <div class="option">
+                <label>Opsi 1:</label>
+                <input type="number" placeholder="poin" required>
+                <input type="text" placeholder="deskripsi opsi" required>
+            </div>
+        </div>
+        <div class="add-option" onclick="addOption()">+tambah opsi</div>
+    </form>
+
+    <script>
+        let optionCount = 1;
+
+        function addOption() {
+            optionCount++;
+            const optionContainer = document.getElementById('optionContainer');
+            const newOption = document.createElement('div');
+            newOption.className = 'option';
+            newOption.innerHTML = `
+                <label>Opsi ${optionCount}:</label>
+                <input type="number" placeholder="poin" required>
+                <input type="text" placeholder="deskripsi opsi" required>
+            `;
+            optionContainer.appendChild(newOption);
+        }
+    </script>
+
+</body>
+</html>
